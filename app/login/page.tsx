@@ -97,7 +97,7 @@ export default function LoginPage() {
       if (returnTo?.startsWith("/") && !returnTo.startsWith("//")) {
         router.replace(returnTo);
       } else {
-        router.push("/dashboard");
+        router.push("/");
       }
     } catch {
       setServerError(
