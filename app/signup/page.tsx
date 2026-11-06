@@ -110,7 +110,7 @@ export default function SignupPage() {
         return;
       }
 
-      router.replace("/dashboard");
+      router.replace("/");
     } catch {
       setServerError(
         "Something went wrong while creating your account. Please try again.",
