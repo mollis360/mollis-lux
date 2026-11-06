@@ -1,0 +1,10 @@
+C:\Users\user\Desktop\Hotel Management\mollis-lux\public\images\mollis-hero.jpg
+C:\Users\user\Desktop\Hotel Management\mollis-lux\public\images\mollis-introduction.jpg
+C:\Users\user\Desktop\Hotel Management\mollis-lux\public\images\mollis-lux-logo.png
+C:\Users\user\Desktop\Hotel Management\mollis-lux\public\images\mollis_login.jpg
+C:\Users\user\Desktop\Hotel Management\mollis-lux\public\images\mollis_lux.jpg
+C:\Users\user\Desktop\Hotel Management\mollis-lux\public\images\room-category-banner.jpg
+C:\Users\user\Desktop\Hotel Management\mollis-lux\public\images\rooms\classic-king.jpg
+C:\Users\user\Desktop\Hotel Management\mollis-lux\public\images\rooms\deluxe-king.jpg
+C:\Users\user\Desktop\Hotel Management\mollis-lux\public\images\rooms\executive-king.jpg
+C:\Users\user\Desktop\Hotel Management\mollis-lux\public\images\rooms\presidential-suite.jpg

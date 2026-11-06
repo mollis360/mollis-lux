@@ -1,0 +1,20 @@
+CREATE TABLE "hotel" (
+	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+	"name" varchar(255) NOT NULL,
+	"slug" varchar(255) NOT NULL UNIQUE,
+	"description" text,
+	"address" text NOT NULL,
+	"city" varchar(100) NOT NULL,
+	"country" varchar(100) NOT NULL,
+	"timezone" varchar(100) NOT NULL,
+	"currency" varchar(3) NOT NULL,
+	"contactEmail" varchar(255) NOT NULL,
+	"contactPhone" varchar(50),
+	"status" varchar(20) DEFAULT 'active' NOT NULL,
+	"createdAt" timestamp with time zone DEFAULT now() NOT NULL,
+	"updatedAt" timestamp with time zone DEFAULT now() NOT NULL,
+	CONSTRAINT "currency_check" CHECK (char_length("currency") = 3),
+	CONSTRAINT "currency_uppercase" CHECK ("currency" = upper("currency")),
+	CONSTRAINT "status_check" CHECK ("status" IN ('active', 'inactive', 'draft')),
+	CONSTRAINT "slug_format" CHECK ("slug" ~ '^[a-z0-9]+(?:-[a-z0-9]+)*$')
+);

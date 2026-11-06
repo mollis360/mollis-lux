@@ -1,0 +1,8 @@
+﻿
+ALTER TABLE "reservation_rooms"
+ADD CONSTRAINT "reservation_rooms_inventory_overlap_exclusion"
+EXCLUDE USING gist (
+  "roomId" WITH =,
+  "stayRange" WITH &&
+)
+WHERE ("blocksInventory" = true);
