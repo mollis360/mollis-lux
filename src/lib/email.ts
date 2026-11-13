@@ -31,13 +31,24 @@ export async function sendEmail({
       user,
       pass: password,
     },
+    connectionTimeout: 15000,
+    greetingTimeout: 15000,
+    socketTimeout: 20000,
   });
 
-  return transporter.sendMail({
-    from: `MOLLIS LUX <${user}>`,
-    to,
-    subject,
-    text,
-    ...(html ? { html } : {}),
-  });
+  try {
+    const result = await transporter.sendMail({
+      from: `MOLLIS LUX <${user}>`,
+      to,
+      subject,
+      text,
+      ...(html ? { html } : {}),
+    });
+
+    console.log("[EMAIL] Message accepted:", result.messageId);
+
+    return result;
+  } finally {
+    transporter.close();
+  }
 }

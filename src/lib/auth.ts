@@ -37,7 +37,7 @@ export const auth = betterAuth({
     resetPasswordTokenExpiresIn: 60 * 60,
 
     sendResetPassword: async ({ user, url }) => {
-      void sendEmail({
+      await sendEmail({
         to: user.email,
         subject: "Reset Your MOLLIS LUX Password",
         text: [
@@ -80,8 +80,6 @@ export const auth = betterAuth({
             </p>
           </div>
         `,
-      }).catch((error: unknown) => {
-        console.error("Failed to send password reset email:", error);
       });
     },
   },
