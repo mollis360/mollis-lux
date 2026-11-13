@@ -208,7 +208,7 @@ export default async function RoomCategorySection({
                 </Link>
 
                 <Link
-                  href="/#rooms"
+                  href="/rooms"
                   className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/30 bg-black/15 px-5 py-3 text-xs font-medium text-white backdrop-blur-md transition duration-300 hover:border-white/60 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white motion-reduce:transition-none"
                 >
                   <Images size={15} aria-hidden="true" />

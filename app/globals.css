@@ -20,12 +20,15 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
   --font-sans:
     ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
+
   --font-serif:
     "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman",
     serif;
+
   --font-mono:
     ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
@@ -74,8 +77,8 @@ button:disabled {
   cursor: not-allowed;
 }
 
+/* Keep links undecorated without overriding Tailwind text-colour utilities. */
 a {
-  color: inherit;
   text-decoration: none;
 }
 

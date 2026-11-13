@@ -1,3 +1,4 @@
+
 "use client";
 
 import {
@@ -152,7 +153,7 @@ function RoomCardContent({
     imageCount > 0 ? Math.min(activeImage, imageCount - 1) : 0;
 
   const currentImage = images[effectiveImageIndex];
-  const roomTitle = room.name?.trim() || `Room ${room.roomNumber}`;
+  const roomTitle = room.name?.trim() || "Guest Room";
   const startingPrice = formatStartingPrice(categoryDetails.basePrice);
   const roomSize = displayValue(categoryDetails.roomSize);
   const bedType = displayValue(categoryDetails.bedType);
@@ -200,7 +201,6 @@ function RoomCardContent({
     [clearAutoplay, clearFade, imageCount],
   );
 
-  // Reset the gallery when its image list changes.
   useEffect(() => {
     if (imageSignatureRef.current === imageSignature) {
       return;
@@ -224,7 +224,6 @@ function RoomCardContent({
     };
   }, [imageSignature, clearFade, clearAutoplay]);
 
-  // Clean up timers when the component unmounts.
   useEffect(() => {
     return () => {
       clearFade();
@@ -232,7 +231,6 @@ function RoomCardContent({
     };
   }, [clearFade, clearAutoplay]);
 
-  // Advance the gallery only when it is idle.
   useEffect(() => {
     if (imageCount <= 1 || detailsOpen || autoplayPaused) {
       return;
@@ -255,7 +253,6 @@ function RoomCardContent({
     clearAutoplay,
   ]);
 
-  // Manage drawer focus, keyboard navigation, and page scrolling.
   useEffect(() => {
     if (!detailsOpen) return;
 
@@ -397,14 +394,6 @@ function RoomCardContent({
 
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-stone-950/35 via-transparent to-stone-950/10" />
 
-          <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full border border-white/70 bg-[#fffdf8]/95 px-3 py-2 text-[10px] font-medium uppercase tracking-[0.14em] text-[#715638] shadow-sm backdrop-blur-xl sm:text-[11px]">
-            <BedDouble
-              className="h-3.5 w-3.5 text-[#a78655]"
-              aria-hidden="true"
-            />
-            Room {room.roomNumber}
-          </div>
-
           {imageCount > 0 && (
             <div
               className="absolute right-4 top-4 flex items-center gap-2 rounded-full border border-white/40 bg-stone-950/30 px-3 py-2 text-[10px] font-medium tracking-[0.12em] text-white backdrop-blur-xl"
@@ -501,25 +490,15 @@ function RoomCardContent({
             </div>
           )}
 
-          <div className="mt-5 flex min-h-10 flex-wrap items-center gap-x-4 gap-y-2 border-t border-[#eee7dc] pt-4">
-            <div className="inline-flex items-center gap-2 text-xs text-stone-500">
-              <BedDouble
+          {room.floor && (
+            <div className="mt-5 flex min-h-10 items-center gap-2 border-t border-[#eee7dc] pt-4 text-xs text-stone-500">
+              <Building2
                 className="h-4 w-4 text-[#a78655]"
                 aria-hidden="true"
               />
-              <span>Room {room.roomNumber}</span>
+              <span>Floor {room.floor}</span>
             </div>
-
-            {room.floor && (
-              <div className="inline-flex items-center gap-2 text-xs text-stone-500">
-                <Building2
-                  className="h-4 w-4 text-[#a78655]"
-                  aria-hidden="true"
-                />
-                <span>Floor {room.floor}</span>
-              </div>
-            )}
-          </div>
+          )}
 
           <div className="mt-auto grid grid-cols-1 gap-3 pt-6 sm:grid-cols-2">
             <button
@@ -566,7 +545,7 @@ function RoomCardContent({
                   MOLLIS LUX
                 </p>
                 <p className="mt-1 text-xs text-stone-500">
-                  Room {room.roomNumber}
+                  {categoryDetails.name}
                 </p>
               </div>
 
@@ -678,22 +657,8 @@ function RoomCardContent({
                 </p>
               </div>
 
-              <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                <div className="rounded-2xl border border-stone-200/80 bg-white p-4 transition-colors hover:border-[#d8c5a5]">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#f5eee3] text-[#967448]">
-                    <BedDouble className="h-4 w-4" aria-hidden="true" />
-                  </div>
-
-                  <p className="mt-4 text-[10px] font-medium uppercase tracking-[0.14em] text-stone-500">
-                    Room number
-                  </p>
-
-                  <p className="mt-1.5 font-medium text-stone-900">
-                    {room.roomNumber}
-                  </p>
-                </div>
-
-                <div className="rounded-2xl border border-stone-200/80 bg-white p-4 transition-colors hover:border-[#d8c5a5]">
+              {room.floor && (
+                <div className="mt-7 rounded-2xl border border-stone-200/80 bg-white p-4 transition-colors hover:border-[#d8c5a5]">
                   <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#f5eee3] text-[#967448]">
                     <Building2 className="h-4 w-4" aria-hidden="true" />
                   </div>
@@ -703,10 +668,10 @@ function RoomCardContent({
                   </p>
 
                   <p className="mt-1.5 font-medium text-stone-900">
-                    {room.floor || "Not specified"}
+                    {room.floor}
                   </p>
                 </div>
-              </div>
+              )}
 
               {/* Room category information */}
               <section className="mt-9 border-t border-stone-200 pt-7">

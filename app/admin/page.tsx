@@ -142,7 +142,7 @@ export default async function AdminDashboardPage() {
 
           <Link
             href="/admin/rooms/new"
-            className="inline-flex min-h-12 w-full shrink-0 items-center justify-center gap-2 rounded-2xl bg-neutral-950 px-5 py-3 text-sm font-medium text-white shadow-lg shadow-neutral-950/10 transition hover:bg-neutral-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 sm:w-auto"
+            className="inline-flex min-h-12 w-full shrink-0 items-center justify-center gap-2 rounded-2xl bg-amber-700 px-5 py-3 text-sm font-medium text-white shadow-lg shadow-amber-900/10 transition hover:bg-amber-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 sm:w-auto"
           >
             <Plus size={17} />
             Add a Room

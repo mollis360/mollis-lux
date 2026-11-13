@@ -53,7 +53,7 @@ export default async function PublicNavbar() {
     "h-3.5 w-3.5 shrink-0 transition-transform duration-300 group-hover/link:-translate-y-0.5 motion-reduce:transform-none motion-reduce:transition-none";
 
   return (
-    <header className="group/nav fixed inset-x-0 top-0 z-50 border-b border-transparent bg-transparent transition-[background-color,border-color,box-shadow] duration-300 hover:border-stone-200/80 hover:bg-[#fbfaf7]/95 hover:shadow-[0_12px_40px_rgba(41,37,36,0.06)] focus-within:border-stone-200/80 focus-within:bg-[#fbfaf7]/95 focus-within:shadow-[0_12px_40px_rgba(41,37,36,0.06)] motion-reduce:transition-none">
+    <header className="group/nav fixed inset-x-0 top-0 z-50 border-b border-stone-200/80 bg-[#fbfaf7]/95 shadow-[0_8px_30px_rgba(41,37,36,0.05)] backdrop-blur-md supports-[backdrop-filter]:bg-[#fbfaf7]/85">
       <div className="mx-auto flex min-h-[76px] max-w-[1600px] items-center justify-between gap-3 px-4 sm:px-6 lg:min-h-[88px] lg:px-10">
         {/* Brand */}
         <Link
@@ -95,7 +95,7 @@ export default async function PublicNavbar() {
           {/* Room categories menu */}
           <div className="group/rooms relative">
             <Link
-              href="/#rooms"
+              href="/rooms"
               aria-haspopup="true"
               className={navigationLink}
             >
@@ -171,7 +171,7 @@ export default async function PublicNavbar() {
                 )}
 
                 <Link
-                  href="/#rooms"
+                  href="/rooms"
                   className="group/all flex items-center justify-between gap-3 rounded-xl bg-stone-900 px-4 py-3.5 text-xs font-medium text-white transition-colors hover:bg-stone-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a78655] focus-visible:ring-offset-2 motion-reduce:transition-none"
                 >
                   <span className="flex items-center gap-2">
@@ -194,9 +194,9 @@ export default async function PublicNavbar() {
           </Link>
 
           <Link href="/about" className={navigationLink}>
-  <Info className={iconClass} aria-hidden="true" />
-  About
-</Link>
+            <Info className={iconClass} aria-hidden="true" />
+            About
+          </Link>
 
           <Link href="/contact" className={navigationLink}>
             <Mail className={iconClass} aria-hidden="true" />
@@ -329,7 +329,7 @@ export default async function PublicNavbar() {
 
                 <div className="ml-4 border-l border-stone-200 py-1 pl-3">
                   <Link
-                    href="/#rooms"
+                    href="/rooms"
                     className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-xs font-medium text-[#967344] transition-colors hover:bg-white"
                   >
                     <ArrowRight size={13} aria-hidden="true" />
@@ -362,12 +362,12 @@ export default async function PublicNavbar() {
               </Link>
 
               <Link
-  href="/about"
-  className="flex items-center gap-3 rounded-xl px-3 py-3 text-sm text-stone-700 transition-colors hover:bg-white hover:text-[#967344]"
->
-  <Info size={17} aria-hidden="true" />
-  About
-</Link>
+                href="/about"
+                className="flex items-center gap-3 rounded-xl px-3 py-3 text-sm text-stone-700 transition-colors hover:bg-white hover:text-[#967344]"
+              >
+                <Info size={17} aria-hidden="true" />
+                About
+              </Link>
 
               <Link
                 href="/contact"
